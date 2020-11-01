@@ -1,0 +1,116 @@
+
+<div id="main_container"  >
+  <!--================================Start of Top nav bar==============================================-->
+  <mat-toolbar id="toolbar" color="primary">
+    <h1 class="ui-g-12 ui-md-6 ui-lg-5">Anytime Library</h1>
+    <div class="ui-g-12 ui-md-6 ui-lg-2">
+      <button  mat-raised-button color="link" style="float: right"  data-toggle="modal" data-target="#Admin">Admin</button>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-2">
+      <button  mat-raised-button color="link" style="float: right"  data-toggle="modal" data-target="#LogIn">Login</button>
+    </div>
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+      <button  mat-raised-button color="link" style="float: right"  data-toggle="modal" data-target="#SignUp">Sign Up</button>
+    </div>
+  </mat-toolbar>
+  <br/>
+  <br/>
+  <!--================================End of Top nav bar==============================================-->
+
+<!--================================Start of Login==============================================-->
+
+<div class="modal fade "id="LogIn" tabindex="-1" role="dialog" aria-labelledby="LogInLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="LogInLabel">User LogIn</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+        <form #loginForm="ngForm" class="col s12 white">
+          <div class="form-group">
+            <label for="username">UserName</label>
+            <input type="text" class="form-control" name="UserName" placeholder="Enter UserName" #UserName="ngModel" ngModel required/>
+            <small id="usernameHelp" class="form-text text-muted"></small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="Password" placeholder="Password" #Password="ngModel" ngModel required />
+          </div>
+          <button [disabled]="!loginForm.valid" autofocus data-dismiss="modal" type="button" class="btn btn-outline-success" type="button" (click)="OnSubmit(loginForm)">Login  <i class="far fa-paper-plane"></i></button>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <!--================================End of Login==============================================-->
+
+  <!--================================Start of SignUp==============================================-->
+
+  <div class="modal fade" id="SignUp" tabindex="-1" role="dialog" aria-labelledby="SignUpLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="SignUpLabel" style="text-align: center">Sign Up</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-sign-up></app-sign-up>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--================================End of SignUp==============================================-->
+
+  <!--================================Start of admin Login==============================================-->
+
+  <div class="modal fade "id="Admin" tabindex="-1" role="dialog" aria-labelledby="adminLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="adminLabel">Admin</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" >
+          <form #logForm="ngForm" class="col s12 white">
+            <div class="form-group">
+              <label for="username">UserName</label>
+              <input type="text" class="form-control" name="UserName" placeholder="Enter UserName" #UserName="ngModel" ngModel required/>
+              <small id="usernameHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="Password" placeholder="Password" #Password="ngModel" ngModel required />
+            </div>
+            <button [disabled]="!logForm.valid" autofocus data-dismiss="modal" type="button" class="btn btn-outline-success" type="button" (click)="admin(logForm)">Login  <i class="far fa-paper-plane"></i></button>
+
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--================================End of Admin Login==============================================-->
+
+
+
+
+
+
+</div>
+   <!--================================End of Full Page==============================================-->
+

@@ -1,0 +1,132 @@
+
+<div id="main_container">
+
+  <!--================================Start of Top nav bar==============================================-->
+  <mat-toolbar id="toolbar" color="primary">
+      <h1 class="ui-g-12 ui-md-6 ui-lg-7">Anytime Library</h1>
+      <span class="ui-g-12 ui-md-6 ui-lg-1">
+          <button mat-raised-button style="float: right" routerLink='/search' color="link">Search</button>
+        </span>
+      <span class="ui-g-12 ui-md-6 ui-lg-4">
+        <button  mat-raised-button color="link" style="float: right"  [matMenuTriggerFor]="menu">Account</button>
+      </span>
+    </mat-toolbar>
+  <mat-menu #menu="matMenu">
+      <button  routerLink='/BooksHistory' mat-menu-item>
+          <mat-icon>history</mat-icon>
+
+        <span>Old Books</span>
+      </button>
+
+      <button routerLink='/' mat-menu-item>
+          <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+ <br>
+
+
+
+ <div class="row  jumbotron ">
+    <div class="col-xs-12 col-md-6 col-lg-4 ">
+
+ <div class="ui-g-12 ui-md-6 ui-lg-4">
+<div *ngIf="userDetails.profilepic!='c3JjYXNzZXRzcHJvZmlsZS5qcGc='">
+ <img  src="data:image/JPEG;base64,{{userDetails.profilepic}}" alt="Card image cap" height="300" width="300" >
+</div>
+<div *ngIf="userDetails.profilepic=='c3JjYXNzZXRzcHJvZmlsZS5qcGc='" >
+  <img  src="assets\profile.jpg" alt="Card image cap" height="300" width="300" >
+ </div>
+</div>
+    </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+      <div class="ui-g-12 ui-md-12 ui-lg-12">
+     <h1> {{userDetails.Name}}</h1>
+      </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-8  jumbotron">{{userDetails.UserName}}
+        </div>
+
+        <div class="ui-g-12 ui-md-12 ui-lg-8  jumbotron">{{userDetails.mobileNo}}
+          </div>
+          <div class="ui-g-12 ui-md-12 ui-lg-8 jumbotron">{{userDetails.Email}}
+          </div>
+        </div>
+
+
+
+    <div class="col-xs-12 col-md-6 col-lg-4  ">
+
+      <p-card >
+<div *ngIf="socialLoginDetails!=null">
+  <div class="row">
+    <div class="col">
+   <h4> Google Id</h4>
+    </div>
+    <div class=col>
+        <div *ngIf="socialLoginDetails.googlename!=null&&socialLoginDetails.googlename!=' ';else Addgmail">
+            {{socialLoginDetails.googlename}}
+        </div>
+        <ng-template #Addgmail>
+            <google-login-button (socialUser)="getSocialUser($event)"></google-login-button>
+          </ng-template>
+
+</div>
+</div>
+<div class="row">
+  <div class="col">
+   <h5> Facebook Id</h5>
+  </div>
+  <div class="col">
+      <div *ngIf="socialLoginDetails.facebookName!=null&&socialLoginDetails.facebookName!=' ';else Addfacebook">
+          {{socialLoginDetails.facebookName}}
+      </div>
+      <ng-template #Addfacebook>
+          <facebook-login-button  (socialUser)="getSocialUser($event)"></facebook-login-button>
+        </ng-template>
+  </div>
+
+</div>
+</div>
+
+<div *ngIf="socialLoginDetails==null">
+    <div class="row">
+        <div class="col">
+       <h4> Google Name</h4>
+        </div>
+        <div class=col>
+            <google-login-button (socialUser)="getSocialUser($event)"></google-login-button>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col">
+         <h5> Facebook Name</h5>
+        </div>
+        <div class="col">
+            <facebook-login-button  (socialUser)="getSocialUser($event)"></facebook-login-button>
+        </div>
+
+      </div>
+</div>
+      </p-card>
+    </div>
+  </div>
+
+      <div class="card-body">
+        <input type="file" accept="image/*"  class=" ui-g-12 ui-md-6 ui-lg-8 jumbotron btn btn-danger" ngModel (change)="getFiles($event)">
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+

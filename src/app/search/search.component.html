@@ -1,0 +1,81 @@
+<div id="main_container">
+
+   <!--================================Start of Top nav bar==============================================-->
+
+   <mat-toolbar id="toolbar" color="primary">
+      <h1 class="ui-g-12 ui-md-6 ui-lg-4">Anytime Library</h1>
+      <span class="ui-g-12 ui-md-6 ui-lg-4"></span>
+      <span class="ui-g-12 ui-md-6 ui-lg-4">
+        <button  mat-raised-button color="link" style="float: right"  [matMenuTriggerFor]="menu">Account</button>
+      </span>
+    </mat-toolbar>
+  <mat-menu #menu="matMenu">
+      <button  routerLink='/BooksHistory' mat-menu-item>
+          <mat-icon>history</mat-icon>
+
+        <span>Old Books</span>
+      </button>
+      <button routerLink='/Profile' mat-menu-item>
+          <i class="material-icons md-light">face</i>
+        <span>Profile</span>
+      </button>
+      <button routerLink='/' mat-menu-item>
+          <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+ <!--================================End of Top nav bar==============================================-->
+
+  <!--================================Start of Pick List==============================================-->
+<div class="search">
+  <div *ngIf="!sourcebooks;else elseBlock">
+
+  <h4 style="color: yellow;">No Books Found</h4>
+</div>
+
+<ng-template #elseBlock>
+  <div class="ui-g-12 ui-md-12 ui-lg-3">
+    <label class="categorydisplay"><h4 style="color:yellow;">Please Select a Category</h4></label>
+    <select class=" ui-g-12 ui-md-12 ui-lg-3  custom-select" size="3" style="width:auto"
+      placeholder="Select a Category" name=selectedCategory #selectedCategory="ngModel" [(ngModel)]="categoryname" (change)="booksFilter()">
+          <option  *ngFor="let book of category" [value]="book">{{book}}</option>
+
+        </select>
+
+  </div>
+
+
+    <div class="ui-g-12 ui-md-12 ui-lg-12 bookselect">
+<p-pickList [source]="sourcebooks" [target]="Cartbooks" sourceHeader="Available Books" targetHeader="Cart List " [responsive]="true" filterBy="title,authors"
+        dragdrop="true" dragdropScope="sourcebooks" sourceFilterPlaceholder="Search by Title or Author" targetFilterPlaceholder="Search by Title or Author" [sourceStyle]="{'height':'270px'}" [targetStyle]="{'height':'270px'}">
+    <ng-template let-book pTemplate="item">
+        <div  class="ui-helper-clearfix">
+           <table>
+             <tr>
+           <td> <img [src]="
+              book.imageLinks
+              ? book.imageLinks.thumbnail
+              : '../assets/dummyBook.png'
+
+              "   ></td>
+              <td>  <div style="font-size:12px;">Book : {{book.title}}</div></td>
+            </tr>
+              <tr>
+
+            <td>  <div style="font-size:15px;">Author(s) : {{book.authors}}</div></td>
+            <td>  <div style="font-size:15px;">ISBN : {{book.isbn}}</div></td>
+
+             </tr>
+           </table>
+
+        </div>
+    </ng-template>
+</p-pickList>
+<br/>
+<button class="ui-g-12 ui-md-6 ui-lg-3" style="float: right" type="button" (click)="addtocart()" class="btn btn-success" >Proceed</button>
+</div>
+<br/><br/>
+</ng-template>
+</div>
+  <!--================================End of Pick List==============================================-->
+  </div>

@@ -1,0 +1,358 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Code Complete",
+      "authors": [
+        "Steve McConnell"
+      ],
+      "categories": [
+        "Computers"
+      ],
+      "isbn": "9780735619678",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=QnghAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=QnghAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 18,
+      "averageRating": 4,
+      "language": "Eng",
+      "count": 1,
+      "description": "Features the best practices in the art and science of constructing software--topics include design, applying good techniques to construction, eliminating errors, planning, managing construction activities, and relating personal character to superior software. Original. (Intermediate)"
+    },
+    {
+      "id": 2,
+      "title": "Korgi",
+      "authors": [
+        "Christian Slade"
+      ],
+      "categories": [
+        "Juvenile Fiction"
+      ],
+      "isbn": "9781891830907",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=6C3lCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=6C3lCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+      },
+      "ratingsCount": 5,
+      "averageRating": 4,
+      "language": "ar",
+      "count": 2,
+      "description": "Christian Slade, a former Disney animator and currently full-time freelance illustrator, has brought to Top Shelf a gorgeously illustrated woodland fantasy about a young girl named Ivy, her dog Sprout and their amazing adventures in Korgi Hollow. This amazing combination of adventure and fantasy will appeal to anyone who loves Andy Runton's Owly and Jeff Smith's Bone. Get ready for the launch of something very daring and very new!"
+    },
+    {
+      "id": 3,
+      "title": "One Hundred and Ten Percent",
+      "authors": [
+        "Tony Consiglio"
+      ],
+      "categories": [
+        "Comics & Graphic Novels"
+      ],
+      "isbn": "9781891830754",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=dLBVLymccgsC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=dLBVLymccgsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 1,
+      "averageRating": 3,
+      "language": "en",
+      "count": 2,
+      "description": "Meet Cathy, Gerty and Sasha, three friends with one thing in common: their absolute obsession with the boy band, 110 Per¢. Unfortunately, deception is getting the better of them, and in the course of this story, relationships will crumble, laws will be broken, and lives will be shattered. Watch as these three friends lie, cheat, and steal to try and get closer to a boy band, only to end up further from reality."
+    },
+    {
+      "id": 5,
+      "title": "Super Danny",
+      "authors": [
+        "Mia Coulton"
+      ],
+      "categories": [
+        "Juvenile Nonfiction"
+      ],
+      "isbn": "9781933197906",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=IYQguwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=IYQguwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 1,
+      "averageRating": 1,
+      "language": "en",
+      "count": 3,
+      "description": "Danny the dog wants to be a superhero so he makes his costume out of things he finds from around the house."
+    },
+    {
+      "id": 6,
+      "title": "Tigers at the Zoo",
+      "authors": [
+        "Mia Coulton",
+        "Amy Musser"
+      ],
+      "categories": "Fiction",
+      "isbn": "9781625441669",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=wVK2rQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=wVK2rQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 1,
+      "averageRating": 0,
+      "language": "en",
+      "count": 10,
+      "description": "Good Book"
+    },
+    {
+      "id": 7,
+      "title": "Tummy Trouble for Danny",
+      "authors": [
+        "Mia Coulton"
+      ],
+      "categories": [
+        "Juvenile Fiction"
+      ],
+      "isbn": "9781933624938",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=X9yrMQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=X9yrMQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 0,
+      "averageRating": 0,
+      "language": "en",
+      "count": 1,
+      "description": "Good"
+    },
+    {
+      "title": "Marketing",
+      "description": "Marketing, 8e by Kerin, Hartley, Berkowitz, and Rudelius continues a tradition of leading the market with contemporary, cutting-edge content presented in a conversational student-oriented style, supported by the most comprehensive, innovative, and useful supplement package available. This text and package is designed to meet the needs of a wide spectrum of faculty—from the professor who just wants a good textbook and a few key supplements, to the professor who wants a top-notch fully integrated multimedia program.",
+      "isbn": "9780072828801",
+      "categories": [
+        "Business & Economics"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=_oFDvQLFn8wC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=_oFDvQLFn8wC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "id": 8
+    },
+    {
+      "title": "An introduction to electronics",
+      "authors": [
+        "The Wikipedians"
+      ],
+      "description": "This is the thoroughly revised and updated second edition of the hugely successful The Art of Electronics. Widely accepted as the authoritative text and reference on electronic circuit design, both analog and digital, this book revolutionized the teaching of electronics by emphasizing the methods actually used by circuit designers -- a combination of some basic laws, rules of thumb, and a large bag of tricks. The result is a largely nonmathematical treatment that encourages circuit intuition, brainstorming, and simplified calculations of circuit values and performance. The new Art of Electronics retains the feeling of informality and easy access that helped make the first edition so successful and popular. It is an ideal first textbook on electronics for scientists and engineers and an indispensable reference for anyone, professional or amateur, who works with electronic circuits.",
+      "isbn": "9780521370950",
+      "categories": [
+        "Technology & Engineering"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=bkOMDgwFA28C&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=bkOMDgwFA28C&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "ratingsCount": 47,
+      "averageRating": 4.5,
+      "id": 9
+    },
+    {
+      "title": "Digital Communications",
+      "authors": [
+        "John G. Proakis"
+      ],
+      "description": "Digital Communications is a classic book in the area that is designed to be used as a senior or graduate level text. The text is flexible and can easily be used in a one semester course or there is enough depth to cover two semesters. Its comprehensive nature makes it a great book for students to keep refer to in their professional careers.This best-selling book in Digital Communications by John G. Proakis has been revised to reflect the current trends in the field. Some of the topics that have been added include Turbocodes, Antenna Arrays, Iterative Detection, and Digital Cellular Systems. Also new to this edition are electronic figures for presentation materials found on the website.",
+      "isbn": "9780072321111",
+      "categories": [
+        "Technology & Engineering"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=sbr8QwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=sbr8QwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "ratingsCount": 1,
+      "averageRating": 5,
+      "id": 10
+    },
+    {
+      "title": "Planet of the Apes",
+      "authors": [
+        "Pierre Boulle"
+      ],
+      "description": "Presents a satiric view of modern society in a portrait of a planet where humans and apes have exchanged roles.",
+      "isbn": "9780345447982",
+      "categories": [
+        "Fiction"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=4b-CYcRUqlkC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=4b-CYcRUqlkC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "ratingsCount": 22,
+      "averageRating": 3.5,
+      "id": 11
+    },
+    {
+      "title": "The Bridge Over the River Kwai",
+      "authors": [
+        "Pierre Boulle"
+      ],
+      "description": "A classic novel of the Pacific theater of the Second World War re-creates the events surrounding the construction of a Japanese supply bridge over the River Kwai by British prisoners-of-war during World War II. Reprint. 10,000 first printing.",
+      "isbn": "9780891419136",
+      "categories": [
+        "Fiction"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=N4zfwaz1LOgC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=N4zfwaz1LOgC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "ratingsCount": 7,
+      "averageRating": 3,
+      "id": 12
+    },
+    {
+      "title": "A Bath for Lucky",
+      "authors": [
+        "Mia Coulton"
+      ],
+      "id": 13,
+      "description": "Lucky, the pony, gets a bath.",
+      "isbn": "9781933624167",
+      "categories": [
+        "Juvenile Fiction"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=wMemLAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=wMemLAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "count": 10
+    },
+    {
+      "title": "ABC Danny Hardcover",
+      "authors": [
+        "Mia Coulton"
+      ],
+      "id": 14,
+      "isbn": "9781933624761",
+      "categories": [
+        "Education"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=bFfZMgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=bFfZMgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "count": 10
+    },
+    {
+      "id": 16,
+      "title": "Money, Banking, and Financial Markets",
+      "authors": [
+        "Stephen G. Cecchetti"
+      ],
+      "categories": [
+        "Business & Economics"
+      ],
+      "isbn": "9780072452693",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=2kvGQgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=2kvGQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 1,
+      "averageRating": 1,
+      "language": "en",
+      "count": 2,
+      "description": "Stephen Cecchetti’s new text on Money and Banking offers a fresh, more modern, and more student-friendly approach to the subject. The author has drawn on his vast experience as Vice President at the Federal Reserve Bank of New York, publishing in and editing various journals, and consulting for the European Central Bank, the Bank of England, the Bank of Israel, and the Reserve Bank of Australia as well as his years of teaching at various schools including Ohio State, Brandeis, Princeton, and Oxford University. Students will find the material more relevant and interesting because of the book’s unique emphasis on the Five Core Principles, the early introduction of risk, and an integrated global perspective. Cecchetti is THE money and banking book for today’s students; by focusing on the big picture via core principles, Cecchetti teaches students the rationale for financial rules and institutional structure so that even when the financial system evolves, students’ knowledge will not be out of date."
+    },
+    {
+      "id": 17,
+      "title": "Autumn in the Woods",
+      "authors": [
+        "Mia Coulton"
+      ],
+      "categories": "Fiction",
+      "isbn": "9781625441751",
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=YEBbvgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=YEBbvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "ratingsCount": 1,
+      "averageRating": 1,
+      "language": "en",
+      "count": 2,
+      "description": "Good Book"
+    },
+    {
+      "title": "Organic Chemistry",
+      "authors": [
+        "Janice Gorzynski Smith",
+        "Smith Janice"
+      ],
+      "id": 18,
+      "description": "The Smith: Organic Chemistry text brings new life to the organic chemistry world. This heavily reviewed, new text presents information in the form of bulleted lists and tables; with minimal use of text paragraphs. The author saw a great need for stepped out worked examples; incorporated biological, medicinal, and environmental applications; and an art program that has yet to be seen in organic chemistry! A highlight of the art program are the micro-to-macro art pieces helping students to conceptually understand organic chemistry. Smith: Organic Chemistry is the text you need to see before you make your organic chemistry decision.",
+      "isbn": "9780073101705",
+      "categories": [
+        "Science"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=xiFUNAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=xiFUNAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "count": 2
+    },
+    {
+      "title": "5 Point Someone",
+      "authors": [
+        "Chetan Bhagat"
+      ],
+      "id": 19,
+      "description": "Novel based on the life of three close friends at IIT, Delhi who are totally different.",
+      "isbn": "9788173156243",
+      "categories": [
+        "Indic fiction (English)"
+      ],
+      "imageLinks": {
+        "smallThumbnail": "http://books.google.com/books/content?id=BlpmBQAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+        "thumbnail": "http://books.google.com/books/content?id=BlpmBQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+      },
+      "language": "en",
+      "ratingsCount": 8,
+      "averageRating": 3,
+      "count": 1
+    }
+  ],
+  "Signup": [
+    {
+      "Name": "Trail",
+      "UserName": "Admin",
+      "Email": "admin123@gmail.com",
+      "Password": "Admin@",
+      "gender": "Male",
+      "Age": 22,
+      "mobileNo": "7845124578",
+      "profilepic": "",
+      "id": 1
+    },
+    {
+      "Name": "Test",
+      "UserName": "Test123",
+      "Email": "test@gmail.com",
+      "Password": "@@@@@@@@",
+      "gender": "Male",
+      "Age": 22,
+      "mobileNo": "1245784512",
+      "profilepic": "",
+      "id": 2
+    }
+  ],
+  "cartbooks": [
+ 
+  ],
+  "reviews": [
+
+  ],
+  "socialLogin": [
+    
+  ]
+}

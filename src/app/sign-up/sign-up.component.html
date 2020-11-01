@@ -1,0 +1,219 @@
+<div class="row">
+  <div class="col">
+    <form
+      name="form"
+      #userRegistrationForm="ngForm"
+      novalidate
+      (ngSubmit)="
+        userRegistrationForm.form.valid && onSubmit(userRegistrationForm)
+      "
+    >
+      <!--=========================================FULLNAME========================================-->
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="Name"
+          placeholder="Enter First name , Last name and Middle name if any"
+          #Name="ngModel"
+          ngModel
+          [ngClass]="{
+            'is-invalid': userRegistrationForm.submitted && Name.invalid
+          }"
+          [pattern]="fullnamePattern"
+          minlength="4"
+          required
+        />
+        <div class="invalid-feedback">
+          <div>
+            Full name is required and must contain only letters and should have
+            minimum 4 characters !
+          </div>
+        </div>
+      </div>
+      <!--=========================================FULLNAME========================================-->
+      <!--=========================================USERNAME========================================-->
+      <div class="form-group">
+        <label for="UserName">UserName</label>
+        <input
+          type="text"
+          class="form-control"
+          name="UserName"
+          placeholder="User Name (Eg Xyz97 )"
+          #UserName="ngModel"
+          ngModel
+          [ngClass]="{
+            'is-invalid': userRegistrationForm.submitted && UserName.invalid
+          }"
+          [pattern]="userPattern"
+          maxlength="15"
+          required
+        />
+        <div class="invalid-feedback">
+          <div>
+            User name should have atleast 1 Uppercase letter , 1 Lowercase
+            letter , 1 Digit and should have maximum of 15 characters!
+          </div>
+        </div>
+      </div>
+
+      <!--=========================================USERNAME========================================-->
+      <!--=========================================EMAIL========================================-->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="Email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="Email"
+            placeholder="Eg. xyz@domain.com "
+            #Email="ngModel"
+            ngModel
+            [ngClass]="{
+              'is-invalid': userRegistrationForm.submitted && Email.invalid
+            }"
+            [pattern]="emailPattern"
+            maxlength="30"
+            required
+          />
+          <div class="invalid-feedback">
+            <div>Valid E-mail is required !</div>
+          </div>
+        </div>
+        <!--=========================================EMAIL===================================================-->
+        <!--=========================================PASSWORD========================================-->
+        <div class="form-group col-md-6">
+          <label for="Password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="Password"
+            placeholder="Max. 15 characters"
+            #password="ngModel"
+            ngModel
+            [ngClass]="{
+              'is-invalid': userRegistrationForm.submitted && password.invalid
+            }"
+            [pattern]="passwordPattern"
+            maxlength="15"
+            required
+          />
+          <div
+            *ngIf="userRegistrationForm.submitted || password.invalid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="password.errors.required">
+              Valid password needed, should be of minimum 6 characters with
+              atleast one special character and 1 digit !
+            </div>
+            <div *ngIf="password.errors.pattern">
+              Password should be of minimum 6 characters with atleast one
+              special character and 1 digit !
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--=========================================PASSWORD========================================-->
+      <!--=========================================GENDER,AGE========================================-->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="gender">Gender</label>
+          <select
+            required
+            name="gender"
+            class="form-control"
+            #Gender="ngModel"
+            ngModel
+            [ngClass]="{
+              'is-invalid': userRegistrationForm.submitted && Gender.invalid
+            }"
+          >
+            <option *ngFor="let gend of genders" [value]="gend">{{
+              gend
+            }}</option>
+          </select>
+          <div class="invalid-feedback">
+            <div>Required Field !</div>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Age">Age</label>
+          <input
+            type="number"
+            class="form-control"
+            name="Age"
+            placeholder="Age"
+            #Age="ngModel"
+            ngModel
+            [ngClass]="{
+              'is-invalid': userRegistrationForm.submitted && Age.invalid
+            }"
+            [pattern]="agePattern"
+            oninput="this.value = Math.abs(this.value)"
+            required
+          />
+          <div
+            *ngIf="userRegistrationForm.submitted || Age.invalid"
+            class="invalid-feedback"
+          >
+            <div *ngIf="Age.errors.required">
+              Give Appropriate Age and Age should be 18 and more and less than
+              100 !
+            </div>
+            <div *ngIf="Age.errors.pattern">
+              Age should be 18 and more and less than 100!
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--=========================================GENDER,AGE========================================-->
+      <!--=========================================NUMBER========================================-->
+      <div class="form-group">
+        <label for="mobileNo">Phone Number</label>
+        <input
+          type="text"
+          class="form-control"
+          name="mobileNo"
+          placeholder="Mobile Number"
+          #mobileNo="ngModel"
+          ngModel
+          [ngClass]="{
+            'is-invalid': userRegistrationForm.submitted && mobileNo.invalid
+          }"
+          [pattern]="mobPattern"
+          required
+          length="10"
+        />
+        <div
+          *ngIf="userRegistrationForm.submitted || mobileNo.invalid"
+          class="invalid-feedback"
+        >
+          <div *ngIf="mobileNo.errors.required">
+            Give a valid 10 digit mobile number !
+          </div>
+          <div *ngIf="mobileNo.errors.pattern">
+            Enter a valid 10 digit mobile no !
+          </div>
+        </div>
+      </div>
+      <input
+        type="file"
+        hidden
+        name="profilepic"
+        #profilepic="ngModel"
+        class="form-control browse"
+        ngModel
+      />
+      <!--=========================================NUMBER========================================-->
+      <button
+        class="btn-large btn-submit"
+        id="btnSubmit"
+        type="submit"
+        class="btn btn-primary"
+      >
+        SIGN ME UP <i class="fas fa-sign-in-alt"></i>
+      </button>
+    </form>
+  </div>
+</div>

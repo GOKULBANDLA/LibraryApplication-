@@ -1,0 +1,167 @@
+<div id="main_container">
+
+    <!--================================Start of Top nav bar==============================================-->
+    <mat-toolbar id="toolbar" color="primary">
+      <h1 class="ui-g-12 ui-md-6 ui-lg-7">Anytime Library</h1>
+      <span class="ui-g-12 ui-md-6 ui-lg-1">
+        <button mat-raised-button style="float: right" routerLink='/search' color="link">Search</button>
+      </span>
+      <span class="ui-g-12 ui-md-6 ui-lg-4">
+        <button  mat-raised-button color="link" style="float: right"  [matMenuTriggerFor]="menu">Account</button>
+      </span>
+    </mat-toolbar>
+  <mat-menu #menu="matMenu">
+
+      <button routerLink='/Profile' mat-menu-item>
+          <i class="material-icons md-light">face</i>
+        <span>Profile</span>
+      </button>
+      <button routerLink='/' mat-menu-item>
+          <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+
+
+  <!--================================Start of Displaying Cards==============================================-->
+
+  <div class="ui-g">
+    <div *ngFor="let book of userBookDetails">
+      <div class="ui-g">
+        <div class="ui-g-4">
+          <div class="card" style="width: 22rem;">
+            <img class="card-img-top" [src]="
+                  book.imageLinks
+                    ? book.imageLinks.thumbnail
+                    : '../assets/dummyBook.png'
+                "
+              style="width: 100%;
+                height: 200px;
+                overflow: hidden;" />
+            <div class="card-body">
+              <h5 class="card-title">{{ book.title }}</h5>
+              
+              <div class="ui-g">
+                <div class="ui-g-4">
+
+
+                  <div *ngIf="book.toDate.split('T')[0]<=datePipe">
+                    <strong>Expired</strong>
+                  </div>
+
+                  <div *ngIf="book.toDate.split('T')[0]>datePipe">
+                    <button type="button" (click)="renewBookDetails(book.bookid,book.toDate)" data-toggle="modal"
+                      data-target="#renew" pButton icon="pi pi-check" label="Renew"></button>
+                  </div>
+
+                </div>
+                <div class="ui-g-4">
+
+                  <button type="button" data-toggle="modal" (click)="bookReview(book.bookid)" data-target="#myModal"
+                    pButton icon="pi pi-comments" label="Reviews"></button>
+                </div>
+                <div class="ui-g-4">
+
+                  <button type="button" (click)="addReview(book.bookid)" pButton icon="pi pi-comment" label="Comment"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+        <div class="ui-g-4"></div>
+
+      </div>
+    </div>
+  </div>
+  <!--================================End of Displaying Cards==============================================-->
+
+  <!--================================Start of Review Modal==============================================-->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div *ngIf="this.requiredReviews.length==0;else ElseBlock">
+              No Reviews Yet
+            </div>
+            <ng-template #ElseBlock>
+              <div *ngFor="let book of requiredReviews" class="container">
+                <strong>Rating:</strong>&nbsp;&nbsp;{{book.rating}}
+                <br />
+                {{book.review}}
+                <hr />
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!--================================End of Review Modal==============================================-->
+  <!--================================Start of Renew Modal==============================================-->
+  <!-- Modal -->
+  <div class="modal fade"  id="renew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Book</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="ui-g-12 ui-md-6 ui-lg-12">
+            <div class="ui-g-12">
+              <strong>Title:</strong>
+              {{ bookToRenew.title }}
+            </div>
+
+            <div class="ui-g-12">
+              <strong>Authors:</strong>
+              {{ bookToRenew.authors }}
+            </div>
+            <div class="ui-g-12">
+              <strong>Expiry:</strong>
+              {{ bookToRenew.toDate.split('T')[0] }}
+            </div>
+            <div class="ui-g-12">
+                <strong>Book Status:</strong>
+                {{ bookToRenew.renewCode }}
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button"  class="btn btn-primary" data-dismiss="modal" (click)="returnBook(bookToRenew)">Return</button>
+
+          <button type="button" [disabled]="renewButton" class="btn btn-primary" data-dismiss="modal" (click)="renew(bookToRenew)">Renew</button>
+
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <facebook-share-button [share]="shareObj" ></facebook-share-button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--================================End of Renew Modal==============================================-->
+
+  <!--================================End of Page==============================================-->
+</div>

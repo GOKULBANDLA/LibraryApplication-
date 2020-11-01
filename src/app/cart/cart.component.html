@@ -1,0 +1,59 @@
+<div id="main_container">
+
+    <!--================================Start of Top nav bar==============================================-->
+    <mat-toolbar id="toolbar" color="primary">
+      <h1 class="ui-g-12 ui-md-6 ui-lg-4">Anytime Library</h1>
+      <span class="ui-g-12 ui-md-6 ui-lg-4"></span>
+      <span class="ui-g-12 ui-md-6 ui-lg-4">
+        <button  mat-raised-button color="link" style="float: right"  [matMenuTriggerFor]="menu">Account</button>
+      </span>
+    </mat-toolbar>
+  <mat-menu #menu="matMenu">
+      <button  routerLink='/BooksHistory' mat-menu-item>
+          <mat-icon>history</mat-icon>
+
+        <span>Old Books</span>
+      </button>
+      <button routerLink='/Profile' mat-menu-item>
+          <i class="material-icons md-light">face</i>
+        <span>Profile</span>
+      </button>
+      <button routerLink='/' mat-menu-item>
+          <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+   <br/> <br/> <br/> <br/>
+   <!--================================Start of Page below Nav Bar==============================================-->
+<div class="container">
+
+  <br/>
+
+ <p-orderList header="Books in Cart" filterPlaceholder="Search by Title"  [value]="Cartbooks" [(selection)]="selectedCartBook" controlsPosition="right"  dragdrop="true" filterBy="title">
+  <ng-template let-book pTemplate="item">
+      <div class="ui-helper-clearfix">
+        <img [src]="
+        book.imageLinks
+        ? book.imageLinks.thumbnail
+        : '../assets/dummyBook.png'
+
+        " style="display:inline-block;margin:2px 0 2px 2px" width="70px" >
+          <div style="font-size:16px;float:right;margin:10px 5px 0 0">{{book.title}} - {{book.authors}}</div>
+      </div>
+  </ng-template>
+</p-orderList>
+<br/>
+  <div class="row">
+  <div class="col">
+      <button type="button" routerLink='/search' class="btn btn-danger">Go Back</button>
+  </div>
+  <div class="col"></div><div class="col"></div><div class="col"></div>
+  <div class="col">
+      <button type="button" [disabled]="cartproceed" (click)="Proceed_Cart()" class="btn btn-primary">Proceed</button>
+
+  </div>
+</div>
+</div>
+
+<!--================================End of Full Page==============================================-->
+</div>

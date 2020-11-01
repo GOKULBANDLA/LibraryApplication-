@@ -1,0 +1,403 @@
+<mat-toolbar id="toolbar" color="primary">
+  <h1 class="ui-g-12 ui-md-6 ui-lg-4">Anytime Library</h1>
+  <span class="ui-g-12 ui-md-6 ui-lg-4"></span>
+  <span class="ui-g-12 ui-md-6 ui-lg-4">
+  <button  mat-raised-button color="warn" style="float: right" routerLink='/' >Logout</button>
+  </span>
+</mat-toolbar>
+<p-accordion>
+  <p-accordionTab header="Add Book Details">
+    <p-card header="Add Books" [style]="{ width: auto }">
+      <form #searchForm="ngForm" (submit)="search(ISBN)">
+        <div class="ui-grid-row ui-g">
+          <div class="ui-g-12 ui-md-6">
+            <span class="ui-float-label  ">
+              <input
+                id="float-input"
+                type="text"
+                minlength="9"
+                maxlength="18"
+                name="ISBN"
+                #ISBN="ngModel"
+                ngModel
+                required
+                pInputText
+              />
+              <label for="float-input">Enter ISBN Number</label>
+            </span>
+          </div>
+
+          <div class="ui-g-12 ui-md-6">
+            <button
+              type="submit"
+              class="  btn btn-primary"
+              [disabled]="!searchForm.form.valid"
+            >
+             Add
+            </button>
+          </div>
+        </div>
+      </form>
+    </p-card>
+  </p-accordionTab>
+  <!---------------------------------Crud Operation On Books-------------------------------------- -->
+  <p-accordionTab header="Books Details">
+    <p-table
+      [columns]="cols"
+      [value]="allBooks"
+      selectionMode="single"
+      [(selection)]="selectedBook"
+      (onRowSelect)="onRowSelect($event)"
+      [resizableColumns]="true"
+      [paginator]="true"
+      [rows]="15"
+    >
+      <ng-template pTemplate="caption"> List of Books </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th
+            *ngFor="let col of columns"
+            pResizableColumn
+            [pSortableColumn]="col.field"
+          >
+            {{ col.header }}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns" class="ui-resizable-column">
+            {{ rowData[col.field] }}
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+          <button
+            type="button"
+            pButton
+            icon="fa fa-plus"
+            (click)="showDialogToAdd()"
+            label="Add"
+          ></button>
+        </div>
+      </ng-template>
+    </p-table>
+
+    <p-dialog
+      header="Book Details"
+      [(visible)]="displayDialog"
+      name="form"
+      [responsive]="true"
+      showEffect="fade"
+      [modal]="true"
+      [style]="{ width: '300px' }"
+    >
+      <form
+        name="form"
+        #userRegistrationForm="ngForm"
+        novalidate
+        (ngSubmit)="
+          userRegistrationForm.form.valid "
+      >
+        <div class="ui-g ui-fluid" *ngIf="_book">
+          <input
+            pInputText
+            id="title"
+            hidden
+            [(ngModel)]="_book.id"
+            name="id"
+          />
+          <div class="ui-g-12">
+            <div class="ui-g-4"><label for="title">Title</label></div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                id="title"
+                [(ngModel)]="_book.title"
+                name="title"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4"><label for="authors">Authors</label></div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                id="authors"
+                name="authors"
+                [(ngModel)]="_book.authors"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4"><label for="categories">Categories</label></div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                id="categories"
+                name="categories"
+                [(ngModel)]="_book.categories"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4"><label for="language">Language</label></div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                id="language"
+                name="language"
+                [(ngModel)]="_book.language"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-4"><label for="isbn">ISBN</label></div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                id="isbn"
+                minlength="9"
+                maxlength="13"
+                name="isbn"
+                [(ngModel)]="_book.isbn"
+                oninput="this.value = Math.abs(this.value)"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="ui-g-12">
+            <div class="ui-g-6">
+              <label for="ratingsCount">Ratings Count</label>
+            </div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                type="number"
+                [pattern]="numberPattern"
+                name="ratingsCount"
+                id="ratingsCount"
+                oninput="this.value = Math.abs(this.value)"
+                [(ngModel)]="_book.ratingsCount"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-6">
+              <label for="description">Description</label>
+            </div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                id="description"
+                name="description"
+                [(ngModel)]="_book.description"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-6">
+              <label for="averageRating">Average Rating</label>
+            </div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                type="number"
+                [pattern]="numberPattern"
+                oninput="this.value = Math.abs(this.value)"
+                id="averageRating"
+                name="averageRating"
+                [(ngModel)]="_book.averageRating"
+                required
+              />
+            </div>
+          </div>
+          <div class="ui-g-12">
+            <div class="ui-g-6"><label for="count">Books Count</label></div>
+            <div class="ui-g-12">
+              <input
+                pInputText
+                type="number"
+                [pattern]="numberPattern"
+                oninput="this.value = Math.abs(this.value)"
+                id="count"
+                name="count"
+                [(ngModel)]="_book.count"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <p-footer>
+          <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button
+              type="button"
+              [hidden]="!deleteButton"
+              pButton
+              (click)="delete()"
+              label="Delete"
+            ></button
+            >&nbsp;
+            <button
+              type="submit"
+              [disabled]="!userRegistrationForm.valid"
+              pButton
+              icon="fa fa-check"
+              (click)="save()"
+              label="Save"
+            ></button>
+          </div>
+        </p-footer>
+      </form>
+    </p-dialog>
+  </p-accordionTab>
+  <!---------------------------------End of Crud Operation On Books-------------------------------------- -->
+
+  <p-accordionTab header="Renewal Updation">
+    <p-table
+      #dt2
+      [columns]="admincols"
+      [value]="adminBooksApprove"
+      [paginator]="true"
+      [rows]="10"
+      dataKey="vin"
+      [resizableColumns]="true"
+      [reorderableColumns]="true"
+      selectionMode="single"
+      [(selection)]="selectedCartBook"
+      stateStorage="local"
+      stateKey="statedemo-local"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th
+            *ngFor="let col of columns"
+            [pSortableColumn]="col.field"
+            pResizableColumn
+            pReorderableColumn
+          >
+            {{ col.header }}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+          <th>Approve</th>
+          <th>Reject</th>
+        </tr>
+        <tr>
+          <th
+            *ngFor="let col of columns"
+            [ngSwitch]="col.field"
+            class="ui-fluid"
+          >
+            <input
+              pInputText
+              type="text"
+              (input)="
+                dt2.filter($event.target.value, col.field, col.filterMatchMode)
+              "
+              [value]="dt2.filters[col.field]?.value"
+            />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">{{ rowData[col.field] }}</td>
+          <td>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-check"
+              (click)="bookApprove(rowData)"
+              label="Approve"
+              iconPos="left"
+            ></button>
+          </td>
+          <td>
+            <button
+              pButton
+              type="button"
+              icon="pi pi-check"
+              (click)="bookReject(rowData)"
+              class="ui-button-danger"
+              label="Reject"
+              iconPos="left"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-accordionTab>
+  <p-accordionTab header="Cart Books">
+    <p-table
+      #dt2
+      [columns]="cartBookscols"
+      [value]="booksWithUser"
+      [paginator]="true"
+      [rows]="10"
+      dataKey="vin"
+      [resizableColumns]="true"
+      [reorderableColumns]="true"
+      selectionMode="single"
+      stateStorage="local"
+      stateKey="statedemo-local"
+    >
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th
+            *ngFor="let col of columns"
+            [pSortableColumn]="col.field"
+            pResizableColumn
+            pReorderableColumn
+          >
+            {{ col.header }}
+            <p-sortIcon [field]="col.field"></p-sortIcon>
+          </th>
+          <th>Delete</th>
+        </tr>
+        <tr>
+          <th
+            *ngFor="let col of columns"
+            [ngSwitch]="col.field"
+            class="ui-fluid"
+          >
+            <input
+              pInputText
+              type="text"
+              (input)="
+                dt2.filter($event.target.value, col.field, col.filterMatchMode)
+              "
+              [value]="dt2.filters[col.field]?.value"
+            />
+          </th>
+
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td *ngFor="let col of columns">{{ rowData[col.field] }}</td>
+        <td> <button
+          pButton
+          type="button"
+          icon="pi pi-check"
+          (click)="deleteCartBook(rowData)"
+          class="ui-button-danger"
+          label="Delete"
+          iconPos="left"
+        ></button>
+      </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-accordionTab>
+</p-accordion>
+
+
